@@ -5,7 +5,6 @@
 		xmlns:ui="clr-namespace:Dwarrowdelf.Client.UI"
 		xmlns:world="clr-namespace:Dwarrowdelf.Client;assembly=Dwarrowdelf.Client.World"
 		xmlns:clientCommon="clr-namespace:Dwarrowdelf.Client;assembly=Dwarrowdelf.Client.Common"
-		xmlns:map3d="clr-namespace:Dwarrowdelf.Client;assembly=Dwarrowdelf.Client.MapControl3D"
 		Title="Dwarrowdelf" Height="720" Width="1200"
 		x:ClassModifier="internal"
 		x:Name="mainWindow"
@@ -114,7 +113,7 @@
 				<ui:FocusedObjectStats DockPanel.Dock="Right" VerticalAlignment="Top" DataContext="{Binding Data.FocusedObject}"
 									   Visibility="{Binding Converter={StaticResource nullToVisConverter}}" />
 
-				<map3d:MapControl3D x:Name="map" UseLayoutRounding="True" />
+				<local:MapControl3D x:Name="map" UseLayoutRounding="True" />
 
 			</DockPanel>
 

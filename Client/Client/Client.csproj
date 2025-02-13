@@ -59,7 +59,6 @@
     <ProjectReference Include="..\..\Server\Server\Server.csproj" />
     <ProjectReference Include="..\Common\Client.Common.csproj" />
     <ProjectReference Include="..\Engine\Client.Engine.csproj" />
-    <ProjectReference Include="..\MapControl3D\MapControl3D.csproj" />
     <ProjectReference Include="..\Win32\Win32.csproj" />
     <ProjectReference Include="..\Base\Client.Base.csproj" />
     <ProjectReference Include="..\World\Client.World.csproj" />

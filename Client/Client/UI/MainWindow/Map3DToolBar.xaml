@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:ui="clr-namespace:Dwarrowdelf.Client.UI"
-			 xmlns:map="clr-namespace:Dwarrowdelf.Client;assembly=Dwarrowdelf.Client.MapControl3D"
+			 xmlns:local="clr-namespace:Dwarrowdelf.Client"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	<ToolBarTray Orientation="Vertical">
@@ -12,24 +12,24 @@
 			<GroupBox Header="Selection">
 				<UniformGrid Columns="3">
 					<RadioButton Content="U" Style="{StaticResource {x:Type ToggleButton}}"
-							 IsChecked="{Binding Path=PickMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static map:MapControlPickMode.Underground}}" />
+							 IsChecked="{Binding Path=PickMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:MapControlPickMode.Underground}}" />
 
 					<RadioButton Content="A" Style="{StaticResource {x:Type ToggleButton}}"
-							 IsChecked="{Binding Path=PickMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static map:MapControlPickMode.AboveGround}}" />
+							 IsChecked="{Binding Path=PickMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:MapControlPickMode.AboveGround}}" />
 
 					<RadioButton Content="C" Style="{StaticResource {x:Type ToggleButton}}"
-							 IsChecked="{Binding Path=PickMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static map:MapControlPickMode.Constant}}" />
+							 IsChecked="{Binding Path=PickMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:MapControlPickMode.Constant}}" />
 				</UniformGrid>
 			</GroupBox>
 
 			<GroupBox Header="Camera">
 				<UniformGrid Columns="1">
 					<RadioButton Content="None" Style="{StaticResource {x:Type ToggleButton}}"
-							 IsChecked="{Binding Path=CameraControlMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static map:CameraControlMode.None}}" />
+							 IsChecked="{Binding Path=CameraControlMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:CameraControlMode.None}}" />
 					<RadioButton Content="RTS" Style="{StaticResource {x:Type ToggleButton}}"
-							 IsChecked="{Binding Path=CameraControlMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static map:CameraControlMode.Rts}}" />
+							 IsChecked="{Binding Path=CameraControlMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:CameraControlMode.Rts}}" />
 					<RadioButton Content="FPS" Style="{StaticResource {x:Type ToggleButton}}"
-							 IsChecked="{Binding Path=CameraControlMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static map:CameraControlMode.Fps}}" />
+							 IsChecked="{Binding Path=CameraControlMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:CameraControlMode.Fps}}" />
 				</UniformGrid>
 			</GroupBox>
 

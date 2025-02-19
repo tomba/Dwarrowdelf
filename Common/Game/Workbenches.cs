@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
-using System.Windows.Markup;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text.Json;
 
 namespace Dwarrowdelf
 {
-	[ContentProperty("BuildableItems")]
 	public sealed class WorkbenchInfo
 	{
-		public ItemID WorkbenchID { get; internal set; }
-		public List<BuildableItem> BuildableItems { get; internal set; }
+		public ItemID WorkbenchID { get; set; }
+		public List<BuildableItem> BuildableItems { get; set; }
 
 		public WorkbenchInfo()
 		{
@@ -24,17 +24,16 @@ namespace Dwarrowdelf
 		}
 	}
 
-	[ContentProperty("FixedBuildMaterials")]
 	public sealed class BuildableItem
 	{
-		public string Key { get; internal set; }
-		public string FullKey { get; internal set; }
-		public ItemID ItemID { get; internal set; }
+		public string Key { get; set; }
+		public string FullKey { get; set; }
+		public ItemID ItemID { get; set; }
 		public ItemInfo ItemInfo { get { return Items.GetItemInfo(this.ItemID); } }
-		public MaterialID? MaterialID { get; internal set; }
-		public SkillID SkillID { get; internal set; }
-		public LaborID LaborID { get; internal set; }
-		public List<FixedMaterialFilter> FixedBuildMaterials { get; internal set; }
+		public MaterialID? MaterialID { get; set; }
+		public SkillID SkillID { get; set; }
+		public LaborID LaborID { get; set; }
+		public List<FixedMaterialFilter> FixedBuildMaterials { get; set; }
 
 		public BuildableItem()
 		{
@@ -58,14 +57,12 @@ namespace Dwarrowdelf
 		}
 	}
 
-	// XXX ItemFilter could possibly be used instead of this
 	public sealed class FixedMaterialFilter : IItemFilter
 	{
-		public ItemID? ItemID { get; internal set; }
-		public ItemCategory? ItemCategory { get; internal set; }
-
-		public MaterialCategory? MaterialCategory { get; internal set; }
-		public MaterialID? MaterialID { get; internal set; }
+		public ItemID? ItemID { get; set; }
+		public ItemCategory? ItemCategory { get; set; }
+		public MaterialCategory? MaterialCategory { get; set; }
+		public MaterialID? MaterialID { get; set; }
 
 		public bool Match(IItemObject ob)
 		{
@@ -91,42 +88,50 @@ namespace Dwarrowdelf
 
 		static Workbenches()
 		{
-			var asm = System.Reflection.Assembly.GetExecutingAssembly();
+			var assembly = Assembly.GetExecutingAssembly();
+			var resourceName = "Dwarrowdelf.Game.Workbenches.json";
 
-			WorkbenchInfo[] workbenchInfos;
-
-			using (var stream = asm.GetManifestResourceStream("Dwarrowdelf.Game.Workbenches.xaml"))
+			using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				var settings = new System.Xaml.XamlXmlReaderSettings()
+				var json = reader.ReadToEnd();
+				var options = new JsonSerializerOptions
 				{
-					LocalAssembly = asm,
+					Converters =
+					{
+						new JsonStringEnumConverter<ItemID>(),
+						new JsonStringEnumConverter<SkillID>(),
+						new JsonStringEnumConverter<LaborID>(),
+						new JsonStringEnumConverter<MaterialID>(),
+						new JsonStringEnumConverter<ItemCategory>(),
+						new JsonStringEnumConverter<MaterialCategory>()
+					}
 				};
-				using (var reader = new System.Xaml.XamlXmlReader(stream, settings))
-					workbenchInfos = (WorkbenchInfo[])System.Xaml.XamlServices.Load(reader);
-			}
+				var workbenchInfos = JsonSerializer.Deserialize<WorkbenchInfo[]>(json, options);
 
-			s_workbenchInfos = new Dictionary<ItemID, WorkbenchInfo>(workbenchInfos.Length);
+				s_workbenchInfos = new Dictionary<ItemID, WorkbenchInfo>(workbenchInfos.Length);
 
-			foreach (var workbench in workbenchInfos)
-			{
-				if (s_workbenchInfos.ContainsKey(workbench.WorkbenchID))
-					throw new Exception();
-
-				foreach (var bi in workbench.BuildableItems)
+				foreach (var workbench in workbenchInfos)
 				{
-					if (String.IsNullOrEmpty(bi.Key))
-						bi.Key = bi.ItemID.ToString();
-
-					bi.FullKey = String.Format("{0},{1}", workbench.WorkbenchID, bi.Key);
-				}
-
-				// verify BuildableItem key uniqueness
-				var grouped = workbench.BuildableItems.GroupBy(bi => bi.Key);
-				foreach (var g in grouped)
-					if (g.Count() != 1)
+					if (s_workbenchInfos.ContainsKey(workbench.WorkbenchID))
 						throw new Exception();
 
-				s_workbenchInfos[workbench.WorkbenchID] = workbench;
+					foreach (var bi in workbench.BuildableItems)
+					{
+						if (String.IsNullOrEmpty(bi.Key))
+							bi.Key = bi.ItemID.ToString();
+
+						bi.FullKey = String.Format("{0},{1}", workbench.WorkbenchID, bi.Key);
+					}
+
+					// verify BuildableItem key uniqueness
+					var grouped = workbench.BuildableItems.GroupBy(bi => bi.Key);
+					foreach (var g in grouped)
+						if (g.Count() != 1)
+							throw new Exception();
+
+					s_workbenchInfos[workbench.WorkbenchID] = workbench;
+				}
 			}
 		}
 

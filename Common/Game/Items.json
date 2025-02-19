@@ -1,0 +1,219 @@
+[
+  {
+    "ID": "Log",
+    "Category": "RawMaterial"
+  },
+  {
+    "ID": "Food",
+    "Category": "Food"
+  },
+  {
+    "ID": "Drink",
+    "Category": "Drink"
+  },
+  {
+    "ID": "Rock",
+    "Category": "RawMaterial"
+  },
+  {
+    "ID": "Ore",
+    "Category": "RawMaterial"
+  },
+  {
+    "ID": "Gem",
+    "Category": "Gem"
+  },
+  {
+    "ID": "UncutGem",
+    "Name": "uncut gem",
+    "Category": "RawMaterial"
+  },
+  {
+    "ID": "Block",
+    "Category": "RawMaterial"
+  },
+  {
+    "ID": "Bar",
+    "Category": "RawMaterial"
+  },
+  {
+    "ID": "Corpse",
+    "Category": "Corpse"
+  },
+  {
+    "ID": "Chair",
+    "Category": "Furniture",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "Table",
+    "Category": "Furniture",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "Door",
+    "Category": "Furniture",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "Bed",
+    "Category": "Furniture",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "Barrel",
+    "Category": "Utility",
+    "Flags": "Container",
+    "Capacity": 100
+  },
+  {
+    "ID": "Bin",
+    "Category": "Utility",
+    "Flags": "Container",
+    "Capacity": 100
+  },
+  {
+    "ID": "Contraption",
+    "Category": "Other"
+  },
+  {
+    "ID": "CarpentersTools",
+    "Name": "carpenter's tools",
+    "Category": "Tools"
+  },
+  {
+    "ID": "MasonsTools",
+    "Name": "mason's tools",
+    "Category": "Tools"
+  },
+  {
+    "ID": "CarpentersWorkbench",
+    "Name": "carpenter's workbench",
+    "Category": "Workbench",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "MasonsWorkbench",
+    "Name": "mason's workbench",
+    "Category": "Workbench",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "SmithsWorkbench",
+    "Name": "smith's workbench",
+    "Category": "Workbench",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "SmelterWorkbench",
+    "Name": "smelter's workbench",
+    "Category": "Workbench",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "GemcuttersWorkbench",
+    "Name": "gem cutter's workbench",
+    "Category": "Workbench",
+    "Flags": "Installable"
+  },
+  {
+    "ID": "Dagger",
+    "Category": "Weapon",
+    "WeaponInfo": {
+      "WC": 3,
+      "IsTwoHanded": false,
+      "WeaponType": "Edged"
+    }
+  },
+  {
+    "ID": "ShortSword",
+    "Category": "Weapon",
+    "WeaponInfo": {
+      "WC": 6,
+      "IsTwoHanded": false,
+      "WeaponType": "Edged"
+    }
+  },
+  {
+    "ID": "BattleAxe",
+    "Category": "Weapon",
+    "WeaponInfo": {
+      "WC": 8,
+      "IsTwoHanded": true,
+      "WeaponType": "Edged"
+    }
+  },
+  {
+    "ID": "Mace",
+    "Category": "Weapon",
+    "WeaponInfo": {
+      "WC": 6,
+      "IsTwoHanded": false,
+      "WeaponType": "Blunt"
+    }
+  },
+  {
+    "ID": "ChainMail",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 7,
+      "Slot": "Torso"
+    }
+  },
+  {
+    "ID": "PlateMail",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 8,
+      "Slot": "Torso"
+    }
+  },
+  {
+    "ID": "Skullcap",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 1,
+      "Slot": "Head"
+    }
+  },
+  {
+    "ID": "Helmet",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 2,
+      "Slot": "Head"
+    }
+  },
+  {
+    "ID": "Gloves",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 1,
+      "Slot": "Hands"
+    }
+  },
+  {
+    "ID": "Gauntlets",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 2,
+      "Slot": "Hands"
+    }
+  },
+  {
+    "ID": "Boots",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 2,
+      "Slot": "Feet"
+    }
+  },
+  {
+    "ID": "Sandals",
+    "Category": "Armor",
+    "ArmorInfo": {
+      "AC": 1,
+      "Slot": "Feet"
+    }
+  }
+]

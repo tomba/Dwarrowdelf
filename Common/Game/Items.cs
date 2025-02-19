@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Markup;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text.Json;
 
 namespace Dwarrowdelf
 {
@@ -101,13 +102,13 @@ namespace Dwarrowdelf
 
 	public sealed class ItemInfo
 	{
-		public ItemID ID { get; internal set; }
-		public string Name { get; internal set; }
-		public ItemCategory Category { get; internal set; }
-		public ItemFlags Flags { get; internal set; }
-		public WeaponInfo WeaponInfo { get; internal set; }
-		public ArmorInfo ArmorInfo { get; internal set; }
-		public int Capacity { get; internal set; }
+		public ItemID ID { get; set; }
+		public string Name { get; set; }
+		public ItemCategory Category { get; set; }
+		public ItemFlags Flags { get; set; }
+		public WeaponInfo WeaponInfo { get; set; }
+		public ArmorInfo ArmorInfo { get; set; }
+		public int Capacity { get; set; }
 
 		public bool IsInstallable { get { return (this.Flags & ItemFlags.Installable) != 0; } }
 		public bool IsContainer { get { return (this.Flags & ItemFlags.Container) != 0; } }
@@ -121,9 +122,9 @@ namespace Dwarrowdelf
 
 	public sealed class WeaponInfo
 	{
-		public int WC { get; internal set; }
-		public bool IsTwoHanded { get; internal set; }
-		public WeaponType WeaponType { get; internal set; }
+		public int WC { get; set; }
+		public bool IsTwoHanded { get; set; }
+		public WeaponType WeaponType { get; set; }
 	}
 
 	public enum ArmorSlot
@@ -135,18 +136,10 @@ namespace Dwarrowdelf
 		Feet,
 	}
 
-	/* leather
-	 * scale
-	 * lamellar
-	 * brigandine
-	 * mail armor (chain mail)
-	 * plate armor (plate mail)
-	 */
-
 	public sealed class ArmorInfo
 	{
-		public int AC { get; internal set; }
-		public ArmorSlot Slot { get; internal set; }
+		public int AC { get; set; }
+		public ArmorSlot Slot { get; set; }
 	}
 
 	public static class Items
@@ -155,32 +148,39 @@ namespace Dwarrowdelf
 
 		static Items()
 		{
-			var asm = System.Reflection.Assembly.GetExecutingAssembly();
+			var assembly = Assembly.GetExecutingAssembly();
+			var resourceName = "Dwarrowdelf.Game.Items.json";
 
-			ItemInfo[] items;
-
-			using (var stream = asm.GetManifestResourceStream("Dwarrowdelf.Game.Items.xaml"))
+			using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				var settings = new System.Xaml.XamlXmlReaderSettings()
+				var json = reader.ReadToEnd();
+				var options = new JsonSerializerOptions
 				{
-					LocalAssembly = asm,
+					Converters =
+					{
+						new JsonStringEnumConverter<ItemID>(),
+						new JsonStringEnumConverter<ItemCategory>(),
+						new JsonStringEnumConverter<ItemFlags>(),
+						new JsonStringEnumConverter<WeaponType>(),
+						new JsonStringEnumConverter<ArmorSlot>()
+					}
 				};
-				using (var reader = new System.Xaml.XamlXmlReader(stream, settings))
-					items = (ItemInfo[])System.Xaml.XamlServices.Load(reader);
-			}
+				var items = JsonSerializer.Deserialize<ItemInfo[]>(json, options);
 
-			var max = items.Max(i => (int)i.ID);
-			s_items = new ItemInfo[max + 1];
+				var max = items.Max(i => (int)i.ID);
+				s_items = new ItemInfo[max + 1];
 
-			foreach (var item in items)
-			{
-				if (s_items[(int)item.ID] != null)
-					throw new Exception();
+				foreach (var item in items)
+				{
+					if (s_items[(int)item.ID] != null)
+						throw new Exception();
 
-				if (item.Name == null)
-					item.Name = item.ID.ToString().ToLowerInvariant();
+					if (item.Name == null)
+						item.Name = item.ID.ToString().ToLowerInvariant();
 
-				s_items[(int)item.ID] = item;
+					s_items[(int)item.ID] = item;
+				}
 			}
 		}
 

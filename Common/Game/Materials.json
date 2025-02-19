@@ -1,0 +1,257 @@
+﻿[
+  {
+    "ID": "Steel",
+    "Category": "Metal",
+    "Color": "LightSteelBlue"
+  },
+  {
+    "ID": "Bronze",
+    "Category": "Metal",
+    "Color": "Brown"
+  },
+  {
+    "ID": "Brass",
+    "Category": "Metal",
+    "Color": "DarkGoldenrod"
+  },
+  {
+    "ID": "Iron",
+    "Category": "Metal",
+    "Color": "SteelBlue"
+  },
+  {
+    "ID": "Gold",
+    "Category": "Metal",
+    "Color": "Gold"
+  },
+  {
+    "ID": "Silver",
+    "Category": "Metal",
+    "Color": "Silver"
+  },
+  {
+    "ID": "Platinum",
+    "Category": "Metal",
+    "Color": "Silver"
+  },
+  {
+    "ID": "Copper",
+    "Category": "Metal",
+    "Color": "DarkGoldenrod"
+  },
+  {
+    "ID": "Zinc",
+    "Category": "Metal",
+    "Color": "DarkSlateGray"
+  },
+  {
+    "ID": "Lead",
+    "Category": "Metal",
+    "Color": "DarkGray"
+  },
+  {
+    "ID": "Tin",
+    "Category": "Metal",
+    "Color": "DarkGray"
+  },
+  {
+    "ID": "Granite",
+    "Category": "Rock",
+    "Color": "DarkGray"
+  },
+  {
+    "ID": "Quartzite",
+    "Category": "Rock",
+    "Color": "Gray"
+  },
+  {
+    "ID": "Sandstone",
+    "Category": "Rock",
+    "Color": "DimGray"
+  },
+  {
+    "ID": "Diorite",
+    "Category": "Rock",
+    "Color": "LightGray"
+  },
+  {
+    "ID": "Dolostone",
+    "Category": "Rock",
+    "Color": "LightGray"
+  },
+  {
+    "ID": "Sand",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "LoamySand",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "SandyLoam",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "SandyClayLoam",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "SandyClay",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "Clay",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "SiltyClay",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "SiltyClayLoam",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "SiltLoam",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "Silt",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "Loam",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "ClayLoam",
+    "Category": "Soil",
+    "Color": "Brown"
+  },
+  {
+    "ID": "Magnetite",
+    "Category": "Mineral",
+    "Color": "LightGray"
+  },
+  {
+    "ID": "NativeGold",
+    "Name": "native gold",
+    "Category": "Mineral",
+    "Color": "Gold"
+  },
+  {
+    "ID": "NativeSilver",
+    "Name": "native silver",
+    "Category": "Mineral",
+    "Color": "Silver"
+  },
+  {
+    "ID": "NativePlatinum",
+    "Name": "native platinum",
+    "Category": "Mineral",
+    "Color": "Silver"
+  },
+  {
+    "ID": "Diamond",
+    "Category": "Gem",
+    "Color": "LightCyan"
+  },
+  {
+    "ID": "Ruby",
+    "Category": "Gem",
+    "Color": "Red"
+  },
+  {
+    "ID": "Sapphire",
+    "Category": "Gem",
+    "Color": "Cyan"
+  },
+  {
+    "ID": "Emerald",
+    "Category": "Gem",
+    "Color": "SpringGreen"
+  },
+  {
+    "ID": "Chrysoprase",
+    "Category": "Gem",
+    "Color": "SpringGreen"
+  },
+  {
+    "ID": "Oak",
+    "Adjective": "oaken",
+    "Category": "Wood",
+    "Color": "Sienna"
+  },
+  {
+    "ID": "Birch",
+    "Adjective": "birchen",
+    "Category": "Wood",
+    "Color": "Sienna"
+  },
+  {
+    "ID": "Fir",
+    "Category": "Wood",
+    "Color": "Sienna"
+  },
+  {
+    "ID": "Pine",
+    "Category": "Wood",
+    "Color": "Sienna"
+  },
+  {
+    "ID": "ReedGrass",
+    "Category": "Grass",
+    "Color": "Green"
+  },
+  {
+    "ID": "MeadowGrass",
+    "Category": "Grass",
+    "Color": "Green"
+  },
+  {
+    "ID": "HairGrass",
+    "Category": "Grass",
+    "Color": "Green"
+  },
+  {
+    "ID": "RyeGrass",
+    "Category": "Grass",
+    "Color": "Green"
+  },
+  {
+    "ID": "Blackberry",
+    "Category": "Berry",
+    "Color": "Green"
+  },
+  {
+    "ID": "Elderberry",
+    "Category": "Berry",
+    "Color": "Green"
+  },
+  {
+    "ID": "Gooseberry",
+    "Category": "Berry",
+    "Color": "Green"
+  },
+  {
+    "ID": "Flesh",
+    "Category": "Consumable",
+    "Color": "Green"
+  },
+  {
+    "ID": "Water",
+    "Category": "Consumable",
+    "Color": "Blue"
+  }
+]

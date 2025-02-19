@@ -1,0 +1,326 @@
+[
+  {
+    "WorkbenchID": "CarpentersWorkbench",
+    "BuildableItems": [
+      {
+        "ItemID": "Chair",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "ItemID": "Table",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "ItemID": "Door",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "ItemID": "Bed",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "ItemID": "Barrel",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "ItemID": "Bin",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "ItemID": "Contraption",
+        "SkillID": "Carpentry",
+        "LaborID": "Carpentry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          },
+          {
+            "MaterialCategory": "Gem"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "WorkbenchID": "MasonsWorkbench",
+    "BuildableItems": [
+      {
+        "ItemID": "Block",
+        "SkillID": "Masonry",
+        "LaborID": "Masonry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Rock",
+            "MaterialCategory": "Rock"
+          }
+        ]
+      },
+      {
+        "ItemID": "Door",
+        "SkillID": "Masonry",
+        "LaborID": "Masonry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Rock",
+            "MaterialCategory": "Rock"
+          }
+        ]
+      },
+      {
+        "ItemID": "Chair",
+        "SkillID": "Masonry",
+        "LaborID": "Masonry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Rock",
+            "MaterialCategory": "Rock"
+          }
+        ]
+      },
+      {
+        "ItemID": "Table",
+        "SkillID": "Masonry",
+        "LaborID": "Masonry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Rock",
+            "MaterialCategory": "Rock"
+          }
+        ]
+      },
+      {
+        "ItemID": "Contraption",
+        "SkillID": "Masonry",
+        "LaborID": "Masonry",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Rock",
+            "MaterialCategory": "Rock"
+          },
+          {
+            "MaterialCategory": "Gem"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "WorkbenchID": "SmithsWorkbench",
+    "BuildableItems": [
+      {
+        "ItemID": "BattleAxe",
+        "SkillID": "BlackSmithing",
+        "LaborID": "Weaponsmithing",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Bar",
+            "MaterialCategory": "Metal"
+          }
+        ]
+      },
+      {
+        "ItemID": "ShortSword",
+        "SkillID": "BlackSmithing",
+        "LaborID": "Weaponsmithing",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Bar",
+            "MaterialCategory": "Metal"
+          }
+        ]
+      },
+      {
+        "ItemID": "Gauntlets",
+        "SkillID": "BlackSmithing",
+        "LaborID": "Armorsmithing",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Bar",
+            "MaterialCategory": "Metal"
+          }
+        ]
+      },
+      {
+        "ItemID": "Gloves",
+        "SkillID": "BlackSmithing",
+        "LaborID": "Armorsmithing",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Bar",
+            "MaterialCategory": "Metal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "WorkbenchID": "SmelterWorkbench",
+    "BuildableItems": [
+      {
+        "Key": "LeadBar",
+        "ItemID": "Bar",
+        "MaterialID": "Lead",
+        "SkillID": "Smelting",
+        "LaborID": "FurnanceOperating",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Ore",
+            "MaterialID": "Lead"
+          },
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "Key": "TinBar",
+        "ItemID": "Bar",
+        "MaterialID": "Tin",
+        "SkillID": "Smelting",
+        "LaborID": "FurnanceOperating",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Ore",
+            "MaterialID": "Tin"
+          },
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "Key": "GoldBar",
+        "ItemID": "Bar",
+        "MaterialID": "Gold",
+        "SkillID": "Smelting",
+        "LaborID": "FurnanceOperating",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Ore",
+            "MaterialID": "NativeGold"
+          },
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "Key": "SilverBar",
+        "ItemID": "Bar",
+        "MaterialID": "Silver",
+        "SkillID": "Smelting",
+        "LaborID": "FurnanceOperating",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Ore",
+            "MaterialID": "NativeSilver"
+          },
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "Key": "PlatinumBar",
+        "ItemID": "Bar",
+        "MaterialID": "Platinum",
+        "SkillID": "Smelting",
+        "LaborID": "FurnanceOperating",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Ore",
+            "MaterialID": "NativePlatinum"
+          },
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      },
+      {
+        "Key": "SteelBar",
+        "ItemID": "Bar",
+        "MaterialID": "Steel",
+        "SkillID": "Smelting",
+        "LaborID": "FurnanceOperating",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "Ore",
+            "MaterialID": "Iron"
+          },
+          {
+            "ItemID": "Ore",
+            "MaterialID": "Tin"
+          },
+          {
+            "ItemID": "Log",
+            "MaterialCategory": "Wood"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "WorkbenchID": "GemcuttersWorkbench",
+    "BuildableItems": [
+      {
+        "ItemID": "Gem",
+        "SkillID": "GemCutting",
+        "LaborID": "GemCutting",
+        "FixedBuildMaterials": [
+          {
+            "ItemID": "UncutGem",
+            "MaterialCategory": "Gem"
+          }
+        ]
+      }
+    ]
+  }
+]

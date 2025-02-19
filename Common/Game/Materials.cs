@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Markup;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text.Json;
 
 namespace Dwarrowdelf
 {
@@ -32,7 +33,7 @@ namespace Dwarrowdelf
 		Quartzite,
 		Sandstone,
 		Diorite,
-		Dolostone,	// mostly Dolomite
+		Dolostone,    // mostly Dolomite
 
 		// Soils
 		Sand,
@@ -125,11 +126,11 @@ namespace Dwarrowdelf
 
 	public sealed class MaterialInfo
 	{
-		public MaterialID ID { get; internal set; }
-		public MaterialCategory Category { get; internal set; }
-		public string Name { get; internal set; }
-		public string Adjective { get; internal set; }
-		public GameColor Color { get; internal set; }
+		public MaterialID ID { get; set; }
+		public MaterialCategory Category { get; set; }
+		public string Name { get; set; }
+		public string Adjective { get; set; }
+		public GameColor Color { get; set; }
 	}
 
 	public static class Materials
@@ -138,44 +139,49 @@ namespace Dwarrowdelf
 
 		static Materials()
 		{
-			var asm = System.Reflection.Assembly.GetExecutingAssembly();
+			var assembly = Assembly.GetExecutingAssembly();
+			var resourceName = "Dwarrowdelf.Game.Materials.json";
 
-			MaterialInfo[] materials;
-
-			using (var stream = asm.GetManifestResourceStream("Dwarrowdelf.Game.Materials.xaml"))
+			using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				var settings = new System.Xaml.XamlXmlReaderSettings()
+				var json = reader.ReadToEnd();
+				var options = new JsonSerializerOptions
 				{
-					LocalAssembly = asm,
+					Converters =
+					{
+						new JsonStringEnumConverter<MaterialID>(),
+						new JsonStringEnumConverter<MaterialCategory>(),
+						new JsonStringEnumConverter<GameColor>()
+					}
 				};
-				using (var reader = new System.Xaml.XamlXmlReader(stream, settings))
-					materials = (MaterialInfo[])System.Xaml.XamlServices.Load(reader);
+				var materials = JsonSerializer.Deserialize<MaterialInfo[]>(json, options);
+
+				var max = materials.Max(m => (int)m.ID);
+				s_materials = new MaterialInfo[max + 1];
+
+				foreach (var item in materials)
+				{
+					if (s_materials[(int)item.ID] != null)
+						throw new Exception("Duplicate entry");
+
+					if (item.Name == null)
+						item.Name = item.ID.ToString().ToLowerInvariant();
+
+					if (item.Adjective == null)
+						item.Adjective = item.Name;
+
+					s_materials[(int)item.ID] = item;
+				}
+
+				s_materials[0] = new MaterialInfo()
+				{
+					ID = MaterialID.Undefined,
+					Name = "<undefined>",
+					Category = MaterialCategory.Undefined,
+					Color = GameColor.None,
+				};
 			}
-
-			var max = materials.Max(m => (int)m.ID);
-			s_materials = new MaterialInfo[max + 1];
-
-			foreach (var item in materials)
-			{
-				if (s_materials[(int)item.ID] != null)
-					throw new Exception("Duplicate entry");
-
-				if (item.Name == null)
-					item.Name = item.ID.ToString().ToLowerInvariant();
-
-				if (item.Adjective == null)
-					item.Adjective = item.Name;
-
-				s_materials[(int)item.ID] = item;
-			}
-
-			s_materials[0] = new MaterialInfo()
-			{
-				ID = MaterialID.Undefined,
-				Name = "<undefined>",
-				Category = MaterialCategory.Undefined,
-				Color = GameColor.None,
-			};
 		}
 
 		public static MaterialInfo GetMaterial(MaterialID id)

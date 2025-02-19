@@ -23,17 +23,9 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Game\Materials.xaml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Game\Items.xaml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Game\Workbenches.xaml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Game\Livings.xaml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Items.json" />
+    <EmbeddedResource Include="Game\Livings.json" />
+    <EmbeddedResource Include="Game\Materials.json" />
+    <EmbeddedResource Include="Game\Workbenches.json" />
   </ItemGroup>
 </Project>

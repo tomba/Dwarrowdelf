@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Markup;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text.Json;
 
 namespace Dwarrowdelf
 {
@@ -36,13 +37,13 @@ namespace Dwarrowdelf
 
 	public sealed class LivingInfo
 	{
-		public LivingID ID { get; internal set; }
-		public string Name { get; internal set; }
-		public LivingCategory Category { get; internal set; }
-		public GameColor Color { get; internal set; }
-		public int Level { get; internal set; }
-		public int Size { get; internal set; }
-		public int NaturalAC { get; internal set; }
+		public LivingID ID { get; set; }
+		public string Name { get; set; }
+		public LivingCategory Category { get; set; }
+		public GameColor Color { get; set; }
+		public int Level { get; set; }
+		public int Size { get; set; }
+		public int NaturalAC { get; set; }
 	}
 
 	public static class Livings
@@ -51,32 +52,35 @@ namespace Dwarrowdelf
 
 		static Livings()
 		{
-			var asm = System.Reflection.Assembly.GetExecutingAssembly();
+			var assembly = Assembly.GetExecutingAssembly();
+			var resourceName = "Dwarrowdelf.Game.Livings.json";
 
-			LivingInfo[] livings;
-
-			using (var stream = asm.GetManifestResourceStream("Dwarrowdelf.Game.Livings.xaml"))
+			using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				var settings = new System.Xaml.XamlXmlReaderSettings()
+				var json = reader.ReadToEnd();
+				var options = new JsonSerializerOptions { 
+					Converters = {
+						new JsonStringEnumConverter<LivingID>(),
+						new JsonStringEnumConverter<LivingCategory>(),
+						new JsonStringEnumConverter<GameColor>()
+						}
+					};
+				var livings = JsonSerializer.Deserialize<LivingInfo[]>(json, options);
+
+				var max = livings.Max(i => (int)i.ID);
+				s_livings = new LivingInfo[max + 1];
+
+				foreach (var living in livings)
 				{
-					LocalAssembly = asm,
-				};
-				using (var reader = new System.Xaml.XamlXmlReader(stream, settings))
-					livings = (LivingInfo[])System.Xaml.XamlServices.Load(reader);
-			}
+					if (s_livings[(int)living.ID] != null)
+						throw new Exception();
 
-			var max = livings.Max(i => (int)i.ID);
-			s_livings = new LivingInfo[max + 1];
+					if (living.Name == null)
+						living.Name = living.ID.ToString().ToLowerInvariant();
 
-			foreach (var living in livings)
-			{
-				if (s_livings[(int)living.ID] != null)
-					throw new Exception();
-
-				if (living.Name == null)
-					living.Name = living.ID.ToString().ToLowerInvariant();
-
-				s_livings[(int)living.ID] = living;
+					s_livings[(int)living.ID] = living;
+				}
 			}
 		}
 

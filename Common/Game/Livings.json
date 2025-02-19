@@ -1,0 +1,45 @@
+[
+  {
+    "ID": "Dwarf",
+    "Name": "dwarf",
+    "Category": "Civilized",
+    "Color": "Yellow",
+    "Level": 4,
+    "Size": 20
+  },
+  {
+    "ID": "Sheep",
+    "Name": "sheep",
+    "Category": "Herbivore",
+    "Color": "Beige",
+    "Level": 2,
+    "Size": 15,
+    "NaturalAC": 1
+  },
+  {
+    "ID": "Wolf",
+    "Name": "wolf",
+    "Category": "Carnivore",
+    "Color": "LightGray",
+    "Level": 4,
+    "Size": 18,
+    "NaturalAC": 2
+  },
+  {
+    "ID": "Dragon",
+    "Name": "dragon",
+    "Category": "Monster",
+    "Color": "Red",
+    "Level": 10,
+    "Size": 80,
+    "NaturalAC": 10
+  },
+  {
+    "ID": "Orc",
+    "Name": "orc",
+    "Category": "Monster",
+    "Color": "Red",
+    "Level": 4,
+    "Size": 30
+  }
+]

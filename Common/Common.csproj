@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Dwarrowdelf</RootNamespace>
     <AssemblyName>Dwarrowdelf.Common</AssemblyName>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>

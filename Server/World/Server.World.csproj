@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Dwarrowdelf.Server</RootNamespace>
     <AssemblyName>Dwarrowdelf.Server.World</AssemblyName>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>

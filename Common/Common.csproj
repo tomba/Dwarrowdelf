@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Dwarrowdelf</RootNamespace>
     <AssemblyName>Dwarrowdelf.Common</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>

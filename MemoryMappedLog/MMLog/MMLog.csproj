@@ -4,6 +4,5 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MemoryMappedLog</RootNamespace>
     <AssemblyName>MemoryMappedLog.MMLog</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 </Project>

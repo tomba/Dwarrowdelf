@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Dwarrowdelf.Client</RootNamespace>
     <AssemblyName>Dwarrowdelf.Client.Common</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>

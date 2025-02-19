@@ -3,7 +3,6 @@
     <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <AssemblyName>Dwarrowdelf.Common.Win32</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>

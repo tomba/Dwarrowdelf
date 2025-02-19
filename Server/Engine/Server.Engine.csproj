@@ -12,7 +12,7 @@
     <ProjectReference Include="..\World\Server.World.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IronPython" />
-    <PackageReference Include="Microsoft.CSharp" />
+    <PackageReference Include="IronPython" Version="3.4.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
   </ItemGroup>
 </Project>

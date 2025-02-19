@@ -17,10 +17,10 @@
 	  <ProjectReference Include="..\MemoryMappedLog\MMLog\MMLog.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NetSerializer" />
-    <PackageReference Include="Newtonsoft.Json" />
-    <PackageReference Include="SharpNoise" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" />
+    <PackageReference Include="NetSerializer" Version="4.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpNoise" Version="0.12.1.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.2" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game\Materials.xaml">

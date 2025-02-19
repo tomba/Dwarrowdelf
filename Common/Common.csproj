@@ -9,16 +9,16 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-	  <Reference Include="Dwarrowdelf.Common.ILSupport">
-		  <HintPath>ILSupport\Dwarrowdelf.Common.ILSupport.dll</HintPath>
-      </Reference>
-	  <ProjectReference Include="..\MemoryMappedLog\MMLog\MMLog.csproj" />
+    <Reference Include="Dwarrowdelf.Common.ILSupport">
+      <HintPath>ILSupport\Dwarrowdelf.Common.ILSupport.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\MemoryMappedLog\MMLog\MMLog.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NetSerializer" Version="4.1.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="SharpNoise" Version="0.12.1.1" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.2" />
+    <PackageReference Include="NetSerializer" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="SharpNoise" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game\Items.json" />

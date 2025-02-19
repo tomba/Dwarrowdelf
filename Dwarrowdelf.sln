@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{37D55AC1-BDAE-4C0C-8856-8867FE772B2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{37D55AC1-BDAE-4C0C-8856-8867FE772B2B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{58D96D64-D599-4B4B-BED7-129EC9464D40}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32", "Client\Win32\Win32
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server\Server.csproj", "{FE74FE0D-25FB-4DE3-BCCF-7028C28C49A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Engine", "Server\Engine\Server.Engine.csproj", "{BCAE564B-8D06-4D7F-866E-EF9E10B27FE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Engine", "Server\Engine\Server.Engine.csproj", "{BCAE564B-8D06-4D7F-866E-EF9E10B27FE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.World", "Server\World\Server.World.csproj", "{0C31C7C2-586F-4F67-8225-1C09E816695B}"
 EndProject

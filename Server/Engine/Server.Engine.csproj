@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>Dwarrowdelf.Server</RootNamespace>
     <AssemblyName>Dwarrowdelf.Server.Engine</AssemblyName>
@@ -12,7 +12,7 @@
     <ProjectReference Include="..\World\Server.World.csproj" />
   </ItemGroup>
   <ItemGroup>
-	  <PackageReference Include="IronPython" Version="3.4.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="IronPython" />
+    <PackageReference Include="Microsoft.CSharp" />
   </ItemGroup>
 </Project>

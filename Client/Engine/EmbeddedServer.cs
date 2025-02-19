@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Loader;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -110,44 +111,34 @@ namespace Dwarrowdelf.Client
 				StatusChanged(status);
 		}
 
-		void CreateEmbeddedServer(string gameDir, Guid save)
-		{
-			m_save = save;
+        void CreateEmbeddedServer(string gameDir, Guid save)
+        {
+            m_save = save;
 
-			string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-			var baseDir = System.IO.Path.GetDirectoryName(exePath);
-			var serverPath = System.IO.Path.Combine(baseDir, "Dwarrowdelf.Server.exe");
+            string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var baseDir = System.IO.Path.GetDirectoryName(exePath);
+            var serverPath = System.IO.Path.Combine(baseDir, "Dwarrowdelf.Server.dll");
 
-			AppDomain appDomain;
+            AssemblyLoadContext assemblyLoadContext;
 
-			switch (m_serverMode)
-			{
-				case EmbeddedServerMode.SeparateAppDomain:
-					{
-						var di = AppDomain.CurrentDomain.SetupInformation;
+            switch (m_serverMode)
+            {
+                case EmbeddedServerMode.SeparateAppDomain:
+                    assemblyLoadContext = new AssemblyLoadContext("ServerContext", isCollectible: true);
+                    break;
 
-						var domainSetup = new AppDomainSetup()
-						{
-							ApplicationBase = di.ApplicationBase,
-							ConfigurationFile = di.ApplicationBase + "Dwarrowdelf.Server.exe.config",
-						};
+                case EmbeddedServerMode.SameAppDomain:
+                    assemblyLoadContext = AssemblyLoadContext.Default;
+                    break;
 
-						m_serverDomain = AppDomain.CreateDomain("ServerDomain", null, domainSetup);
+                default:
+                    throw new Exception();
+            }
 
-						appDomain = m_serverDomain;
-					}
-					break;
-
-				case EmbeddedServerMode.SameAppDomain:
-					appDomain = AppDomain.CurrentDomain;
-					break;
-
-				default:
-					throw new Exception();
-			}
-
-			m_gameFactory = (IGameFactory)appDomain.CreateInstanceFromAndUnwrap(serverPath, "Dwarrowdelf.Server.GameFactory");
-		}
+            var assembly = assemblyLoadContext.LoadFromAssemblyPath(serverPath);
+            var gameFactoryType = assembly.GetType("Dwarrowdelf.Server.GameFactory");
+            m_gameFactory = (IGameFactory)Activator.CreateInstance(gameFactoryType);
+        }
 
 		void ServerMain(object arg)
 		{

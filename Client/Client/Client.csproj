@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Dwarrowdelf.Client</RootNamespace>
     <AssemblyName>Dwarrowdelf.Client</AssemblyName>
@@ -92,23 +92,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
   <ItemGroup>
     <Page Remove="TileSet\TileSet.xaml" />
     <Page Remove="TileSet\Vectors.xaml" />
   </ItemGroup>
-  <PropertyGroup />
-  <Target AfterTargets="BeforeBuild" Name="TileSetGen" Inputs="TileSet/TileSet.xaml;TileSet/Bitmaps.png;TileSet/Vectors.xaml" Outputs="Content/TileSet.png;Content/TileSet.dds">
-    <PropertyGroup>
-      <ToolPath>$(SolutionDir)/Client/TileSetGen/bin/$(Configuration)</ToolPath>
-    </PropertyGroup>
-    <Exec Command="&quot;$(ToolPath)/TileSetGen.exe&quot; TileSet/ Content/" />
-  </Target>
-  <Target AfterTargets="Clean" Name="CleanTileSet">
-    <Delete Files="Content/TileSet.png;Content/TileSet.dds" />
-  </Target>
 </Project>

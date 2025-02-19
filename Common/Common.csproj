@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>Dwarrowdelf</RootNamespace>
     <AssemblyName>Dwarrowdelf.Common</AssemblyName>
@@ -11,37 +11,29 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dwarrowdelf.Common.ILSupport">
-      <HintPath>ILSupport\Dwarrowdelf.Common.ILSupport.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Configuration" />
+	  <Reference Include="Dwarrowdelf.Common.ILSupport">
+		  <HintPath>ILSupport\Dwarrowdelf.Common.ILSupport.dll</HintPath>
+      </Reference>
+	  <ProjectReference Include="..\MemoryMappedLog\MMLog\MMLog.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MemoryMappedLog\MMLog\MMLog.csproj" />
+    <PackageReference Include="NetSerializer" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="SharpNoise" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NetSerializer">
-      <Version>4.1.2</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="SharpNoise">
-      <Version>0.12.1.1</Version>
-    </PackageReference>
+    <EmbeddedResource Include="Game\Materials.xaml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Items.xaml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Workbenches.xaml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Livings.xaml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Include="Game\Materials.xaml">
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<EmbeddedResource Include="Game\Items.xaml">
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<EmbeddedResource Include="Game\Workbenches.xaml">
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<EmbeddedResource Include="Game\Livings.xaml">
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-	</ItemGroup>
 </Project>

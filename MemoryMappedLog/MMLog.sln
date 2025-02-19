@@ -1,13 +1,13 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLog", "MMLog\MMLog.csproj", "{CB9BE647-9B8B-44EF-8D68-01DCDCAA2AEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMLog", "MMLog\MMLog.csproj", "{CB9BE647-9B8B-44EF-8D68-01DCDCAA2AEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLogTest", "MMLogTest\MMLogTest.csproj", "{6CDDA285-7FD7-41E9-8530-687510134641}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMLogTest", "MMLogTest\MMLogTest.csproj", "{6CDDA285-7FD7-41E9-8530-687510134641}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32", "..\Client\Win32\Win32.csproj", "{20715EEB-6DF6-4A43-BF10-D7D0D4A39017}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMLogViewer", "MMLogViewer\MMLogViewer.csproj", "{2C988CF1-6DAC-467F-957D-BCEA08500EF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMLogViewer", "MMLogViewer\MMLogViewer.csproj", "{2C988CF1-6DAC-467F-957D-BCEA08500EF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -35,9 +35,9 @@ namespace Dwarrowdelf.Client
 		{
 			try
 			{
-				var r = m_scriptEngine.ExecuteAndWrap(script, m_scriptScope);
+				var r = m_scriptEngine.Execute(script, m_scriptScope);
 				m_scriptScope.SetVariable("ret", r);
-				m_scriptEngine.Execute("print ret", m_scriptScope);
+				m_scriptEngine.Execute("print(ret)", m_scriptScope);
 			}
 			catch (Exception e)
 			{

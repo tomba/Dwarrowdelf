@@ -19,8 +19,8 @@ namespace TerrainGenTest
 			base.OnStartup(e);
 
 			var listener = new MMLogTraceListener();
-			Debug.Listeners.Clear();
-			Debug.Listeners.Add(listener);
+			System.Diagnostics.Trace.Listeners.Clear();
+			System.Diagnostics.Trace.Listeners.Add(listener);
 		}
 	}
 }
